@@ -1,5 +1,5 @@
 // email Notification
-def EmailNoti(Map args){
+def emailNoti(Map args){
     emailext(subject: """${stage} Status [Started] - Application: ${appName} ${version} [Staging] BUILD : ${env.BUILD_NUMBER}""", mimeType: 'text/html', body: """
     <html>
     <head>
