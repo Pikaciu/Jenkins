@@ -1,5 +1,5 @@
 // email Notification
-def EmailNoti(stage,appName,email_recipient,version){
+def EmailNoti(String stage, String appName, String email_recipient, String version){
     emailext(subject: """${stage} Status [Started] - Application: ${appName} ${version} [Staging] BUILD : ${env.BUILD_NUMBER}""", mimeType: 'text/html', body: """
     <html>
     <head>
