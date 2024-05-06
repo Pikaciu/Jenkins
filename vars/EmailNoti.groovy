@@ -1,6 +1,11 @@
 // email Notification
-def EmailNoti(String stage, String appName, String email_recipient, String version){
-    return{
+def call(body) {
+    def config = [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = config
+    body()
+
+    return {
         emailext(subject: """${stage} Status [Started] - Application: ${appName} ${version} [Staging] BUILD : ${env.BUILD_NUMBER}""", mimeType: 'text/html', body: """
         <html>
         <head>
